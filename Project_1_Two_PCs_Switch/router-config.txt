@@ -1,0 +1,49 @@
+! ============================================
+! Router Configuration
+! Project 1: Basic Network Communication
+! Device: Cisco 1941/2911
+! ============================================
+
+! Enter privileged mode
+enable
+
+! Enter global configuration mode
+configure terminal
+
+! Configure hostname (optional)
+hostname Router-Project1
+
+! Configure GigabitEthernet0/0
+! Network: 192.168.1.0/24
+! Connected to Switch0 (PC0 and PC1)
+interface gigabitethernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+description LINK_TO_SWITCH0_192.168.1.0
+exit
+
+! Configure GigabitEthernet0/1
+! Network: 10.0.0.0/8
+! Connected to Switch1 (PC2)
+interface gigabitethernet0/1
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+description LINK_TO_SWITCH1_10.0.0.0
+exit
+
+! Verify interface configuration
+show ip interface brief
+
+! Save configuration to startup-config
+write memory
+
+! Exit configuration mode
+end
+
+! ============================================
+! Verification Commands:
+! show running-config
+! show ip route
+! ping 192.168.1.2
+! ping 10.0.0.2
+! ============================================
