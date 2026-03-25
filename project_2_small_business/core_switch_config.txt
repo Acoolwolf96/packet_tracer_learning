@@ -1,0 +1,57 @@
+! Core Switch Configuration
+! Device: Cisco 2960-24TT
+
+enable
+configure terminal
+
+! Create VLANs
+vlan 10
+name Sales
+exit
+vlan 20
+name Engineering
+exit
+vlan 30
+name HR
+exit
+vlan 40
+name IT
+exit
+
+! Trunk to Router
+interface gigabitethernet0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,40
+exit
+
+! Trunk to Department Switches
+interface fastethernet0/1
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan 10
+exit
+
+interface fastethernet0/2
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan 20
+exit
+
+interface fastethernet0/3
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan 30
+exit
+
+interface fastethernet0/4
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan 40
+exit
+
+! Verify
+show interfaces trunk
+show vlan brief
+
+! Save
+write memory

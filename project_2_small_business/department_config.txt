@@ -1,0 +1,31 @@
+! Department Switch Configuration Template
+! Device: Cisco 2960-24TT
+! Replace [VLAN_NUMBER] with: 10 (Sales), 20 (Engineering), 30 (HR), or 40 (IT)
+
+enable
+configure terminal
+
+! Uplink to Core Switch (Trunk)
+interface fastethernet0/24
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan [VLAN_NUMBER]
+exit
+
+! PC Ports (Access Ports)
+interface fastethernet0/1
+switchport mode access
+switchport access vlan [VLAN_NUMBER]
+exit
+
+interface fastethernet0/2
+switchport mode access
+switchport access vlan [VLAN_NUMBER]
+exit
+
+! Verify
+show interfaces trunk
+show vlan brief
+
+! Save
+write memory

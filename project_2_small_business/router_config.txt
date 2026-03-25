@@ -1,0 +1,42 @@
+! Router-on-a-Stick Configuration
+! Device: Cisco 2911
+! Interface: GigabitEthernet0/0
+
+enable
+configure terminal
+
+! Subinterface for Sales (VLAN 10)
+interface g0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.192
+exit
+
+! Subinterface for Engineering (VLAN 20)
+interface g0/0.20
+encapsulation dot1q 20
+ip address 192.168.10.65 255.255.255.192
+exit
+
+! Subinterface for HR (VLAN 30)
+interface g0/0.30
+encapsulation dot1q 30
+ip address 192.168.10.129 255.255.255.192
+exit
+
+! Subinterface for IT (VLAN 40)
+interface g0/0.40
+encapsulation dot1q 40
+ip address 192.168.10.193 255.255.255.192
+exit
+
+! Bring up main interface
+interface g0/0
+no shutdown
+exit
+
+! Verify
+show ip interface brief
+show ip route
+
+! Save
+write memory

@@ -1,0 +1,48 @@
+! PC IP Configuration
+
+! Sales Department (VLAN 10)
+PC0:
+  IP Address: 192.168.10.10
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.1
+
+PC1:
+  IP Address: 192.168.10.11
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.1
+
+! Engineering Department (VLAN 20)
+PC2:
+  IP Address: 192.168.10.70
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.65
+
+PC3:
+  IP Address: 192.168.10.71
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.65
+
+! HR Department (VLAN 30)
+PC4:
+  IP Address: 192.168.10.130
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.129
+
+PC5:
+  IP Address: 192.168.10.131
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.129
+
+! IT Department (VLAN 40)
+PC6:
+  IP Address: 192.168.10.200
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.193
+
+PC7:
+  IP Address: 192.168.10.201
+  Subnet Mask: 255.255.255.192
+  Default Gateway: 192.168.10.193
+
+
+  
