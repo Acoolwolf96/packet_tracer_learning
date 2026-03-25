@@ -30,36 +30,6 @@ A growing company with 8 employees needs a network that:
 | Department Switches | Cisco 2960-24TT | 4 | Access layer for each department |
 | Workstations | Generic PC-PT | 8 | Employee workstations |
 
-### Physical Layout
-┌─────────────────────────────────────┐
-│ Router (Gateway) │
-│ Routes between all departments │
-│ Gig0/0.10 - Sales Gateway │
-│ Gig0/0.20 - Engineering Gateway │
-│ Gig0/0.30 - HR Gateway │
-│ Gig0/0.40 - IT Gateway │
-└─────────────────┬───────────────────┘
-│ Trunk (802.1Q)
-┌─────────────────┴───────────────────┐
-│ Core Switch │
-│ Distributes VLANs to departments │
-└─────┬─────┬─────┬───────────────────┘
-│ │ │
-┌─────────────┼─────┼─────┼─────────────┐
-│ │ │ │ │
-┌─────┴─────┐ ┌─────┴─────┐ ┌─────┴─────┐ ┌─────┴─────┐
-│ Sales │ │Engineering│ │ HR │ │ IT │
-│ Switch │ │ Switch │ │ Switch │ │ Switch │
-│ VLAN 10 │ │ VLAN 20 │ │ VLAN 30 │ │ VLAN 40 │
-└─────┬─────┘ └─────┬─────┘ └─────┬─────┘ └─────┬─────┘
-│ │ │ │
-┌─────┴─────┐ ┌─────┴─────┐ ┌─────┴─────┐ ┌─────┴─────┐
-│ PC0 PC1 │ │ PC2 PC3 │ │ PC4 PC5 │ │ PC6 PC7 │
-│ Sales │ │ Engineering│ │ HR │ │ IT │
-└───────────┘ └───────────┘ └───────────┘ └───────────┘
-
-
----
 
 ## IP Addressing Scheme
 
