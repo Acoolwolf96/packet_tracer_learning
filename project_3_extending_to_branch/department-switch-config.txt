@@ -1,0 +1,32 @@
+! ============================================
+! Department Switch Template
+! Device: Cisco 2960-24TT
+! Replace [VLAN_NUMBER] with actual VLAN ID
+! ============================================
+
+enable
+configure terminal
+
+! Uplink to Core Switch (Trunk)
+interface fastethernet0/24
+switchport mode trunk
+switchport trunk allowed vlan [VLAN_NUMBER]
+exit
+
+! PC Ports (Access Ports)
+interface fastethernet0/1
+switchport mode access
+switchport access vlan [VLAN_NUMBER]
+exit
+
+interface fastethernet0/2
+switchport mode access
+switchport access vlan [VLAN_NUMBER]
+exit
+
+! Verify
+show interfaces trunk
+show vlan brief
+
+! Save
+write memory

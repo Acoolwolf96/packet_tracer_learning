@@ -1,0 +1,39 @@
+! ============================================
+! Branch Core Switch Configuration
+! Device: Cisco 2960-24TT
+! ============================================
+
+enable
+configure terminal
+
+! Create VLANs
+vlan 10
+name Sales
+exit
+vlan 20
+name Support
+exit
+
+! Trunk to Router
+interface gigabitethernet0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+
+! Trunk to Department Switches
+interface fastethernet0/1
+switchport mode trunk
+switchport trunk allowed vlan 10
+exit
+
+interface fastethernet0/2
+switchport mode trunk
+switchport trunk allowed vlan 20
+exit
+
+! Verify
+show interfaces trunk
+show vlan brief
+
+! Save
+write memory
